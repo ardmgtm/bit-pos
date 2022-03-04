@@ -4,6 +4,5 @@ part of 'cart_bloc.dart';
 class CartState with _$CartState {
   const factory CartState.initial() = _Initial;
   const factory CartState.modify() = _Modify;
-  const factory CartState.cartItemLoaded(List<CartItem> cartItems) =
-      _CartItemLoaded;
+  const factory CartState.cartItemLoaded(Cart cart) = _CartItemLoaded;
 }
