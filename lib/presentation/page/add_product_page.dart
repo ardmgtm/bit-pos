@@ -37,7 +37,6 @@ class AddProductPage extends StatelessWidget {
                     final isValid = _form.currentState!.validate();
                     if (!isValid) return;
                     var product = Product(
-                      id: 0,
                       name: _productNameInput.text,
                       price: CurrencyFormatter.parse(_priceInput.text),
                       image: _base64imageselected ?? '',

@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_grid/responsive_grid.dart';
@@ -16,6 +17,11 @@ class PointOfSalePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Point of Sale'),
         elevation: 0,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: const Icon(Icons.arrow_back),
+        ),
+        actions: [Container()],
       ),
       body: BlocBuilder<ProductBloc, ProductState>(
         builder: (context, state) {
@@ -25,6 +31,31 @@ class PointOfSalePage extends StatelessWidget {
                 ProductGridView(products: currentState.products),
           );
         },
+      ),
+      floatingActionButton: Badge(
+        badgeContent: const Text(
+          "1",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 24,
+          ),
+        ),
+        showBadge: true,
+        padding: const EdgeInsets.all(8),
+        elevation: 0,
+        badgeColor: Colors.orange,
+        child: Builder(builder: (context) {
+          return FloatingActionButton(
+            onPressed: () => Scaffold.of(context).openEndDrawer(),
+            elevation: 0,
+            backgroundColor: Theme.of(context).colorScheme.primary,
+            child: const Icon(Icons.shopping_cart),
+          );
+        }),
+      ),
+      drawerEnableOpenDragGesture: false,
+      endDrawer: Drawer(
+        child: Container(),
       ),
     );
   }

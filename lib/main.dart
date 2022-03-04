@@ -18,7 +18,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<ProductBloc>(),
+      create: (context) => getIt<ProductBloc>()
+        ..add(
+          const ProductEvent.getProducts(),
+        ),
       child: MaterialApp(
         title: 'Bit Point of Sale',
         theme: ThemeData(

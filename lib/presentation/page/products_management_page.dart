@@ -46,6 +46,10 @@ class ProductsManagementPage extends StatelessWidget {
                               context,
                               BitPosRoutes.productDetail,
                               arguments: product,
+                            ).then(
+                              (value) => context
+                                  .read<ProductBloc>()
+                                  .add(const ProductEvent.getProducts()),
                             );
                           },
                         );
