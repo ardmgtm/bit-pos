@@ -1,4 +1,4 @@
-import 'package:bit_pos/presentation/routes.dart';
+import 'presentation/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

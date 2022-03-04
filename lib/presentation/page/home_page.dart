@@ -1,5 +1,6 @@
-import 'package:bit_pos/presentation/routes.dart';
 import 'package:flutter/material.dart';
+
+import '../routes.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
