@@ -19,7 +19,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     on<_AddItem>((event, emit) {
       var items = [...(state as _CartItemLoaded).cart.items];
       emit(const CartState.modify());
-      items.add(event.item);
+      items = _addItems(items, event.item);
       emit(CartState.cartItemLoaded(Cart(items: items)));
     });
 
@@ -29,5 +29,20 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       items.removeAt(event.index);
       emit(CartState.cartItemLoaded(Cart(items: items)));
     });
+  }
+
+  List<CartItem> _addItems(List<CartItem> list, CartItem newItem) {
+    int index = list.indexWhere(
+      (cartItem) => cartItem.product == newItem.product,
+    );
+    if (index < 0) {
+      list.add(newItem);
+    } else {
+      var modifiedItem = list[index].copyWith(
+        itemCount: list[index].itemCount + newItem.itemCount,
+      );
+      list[index] = modifiedItem;
+    }
+    return list;
   }
 }
