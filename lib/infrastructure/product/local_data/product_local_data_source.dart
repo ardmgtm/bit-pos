@@ -5,9 +5,9 @@ import '../../core/local_db.dart';
 
 @lazySingleton
 class ProductLocalDataSource {
-  final LocalDb localDb;
+  LocalDb localDb = LocalDb.instance;
 
-  ProductLocalDataSource(this.localDb);
+  ProductLocalDataSource();
 
   Future<Product> createProduct(Product product) async {
     var db = await localDb.database;

@@ -864,9 +864,9 @@ class _$ProductStateTearOff {
     );
   }
 
-  _ProductsLoaded productsLoaded(List<Product> product) {
+  _ProductsLoaded productsLoaded(List<Product> products) {
     return _ProductsLoaded(
-      product,
+      products,
     );
   }
 }
@@ -882,7 +882,7 @@ mixin _$ProductState {
     required TResult Function() loading,
     required TResult Function(String? msg) error,
     required TResult Function(Product product) productLoaded,
-    required TResult Function(List<Product> product) productsLoaded,
+    required TResult Function(List<Product> products) productsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -891,7 +891,7 @@ mixin _$ProductState {
     TResult Function()? loading,
     TResult Function(String? msg)? error,
     TResult Function(Product product)? productLoaded,
-    TResult Function(List<Product> product)? productsLoaded,
+    TResult Function(List<Product> products)? productsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -900,7 +900,7 @@ mixin _$ProductState {
     TResult Function()? loading,
     TResult Function(String? msg)? error,
     TResult Function(Product product)? productLoaded,
-    TResult Function(List<Product> product)? productsLoaded,
+    TResult Function(List<Product> products)? productsLoaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -992,7 +992,7 @@ class _$_Initial implements _Initial {
     required TResult Function() loading,
     required TResult Function(String? msg) error,
     required TResult Function(Product product) productLoaded,
-    required TResult Function(List<Product> product) productsLoaded,
+    required TResult Function(List<Product> products) productsLoaded,
   }) {
     return initial();
   }
@@ -1004,7 +1004,7 @@ class _$_Initial implements _Initial {
     TResult Function()? loading,
     TResult Function(String? msg)? error,
     TResult Function(Product product)? productLoaded,
-    TResult Function(List<Product> product)? productsLoaded,
+    TResult Function(List<Product> products)? productsLoaded,
   }) {
     return initial?.call();
   }
@@ -1016,7 +1016,7 @@ class _$_Initial implements _Initial {
     TResult Function()? loading,
     TResult Function(String? msg)? error,
     TResult Function(Product product)? productLoaded,
-    TResult Function(List<Product> product)? productsLoaded,
+    TResult Function(List<Product> products)? productsLoaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1112,7 +1112,7 @@ class _$_Loading implements _Loading {
     required TResult Function() loading,
     required TResult Function(String? msg) error,
     required TResult Function(Product product) productLoaded,
-    required TResult Function(List<Product> product) productsLoaded,
+    required TResult Function(List<Product> products) productsLoaded,
   }) {
     return loading();
   }
@@ -1124,7 +1124,7 @@ class _$_Loading implements _Loading {
     TResult Function()? loading,
     TResult Function(String? msg)? error,
     TResult Function(Product product)? productLoaded,
-    TResult Function(List<Product> product)? productsLoaded,
+    TResult Function(List<Product> products)? productsLoaded,
   }) {
     return loading?.call();
   }
@@ -1136,7 +1136,7 @@ class _$_Loading implements _Loading {
     TResult Function()? loading,
     TResult Function(String? msg)? error,
     TResult Function(Product product)? productLoaded,
-    TResult Function(List<Product> product)? productsLoaded,
+    TResult Function(List<Product> products)? productsLoaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1256,7 +1256,7 @@ class _$_Error implements _Error {
     required TResult Function() loading,
     required TResult Function(String? msg) error,
     required TResult Function(Product product) productLoaded,
-    required TResult Function(List<Product> product) productsLoaded,
+    required TResult Function(List<Product> products) productsLoaded,
   }) {
     return error(msg);
   }
@@ -1268,7 +1268,7 @@ class _$_Error implements _Error {
     TResult Function()? loading,
     TResult Function(String? msg)? error,
     TResult Function(Product product)? productLoaded,
-    TResult Function(List<Product> product)? productsLoaded,
+    TResult Function(List<Product> products)? productsLoaded,
   }) {
     return error?.call(msg);
   }
@@ -1280,7 +1280,7 @@ class _$_Error implements _Error {
     TResult Function()? loading,
     TResult Function(String? msg)? error,
     TResult Function(Product product)? productLoaded,
-    TResult Function(List<Product> product)? productsLoaded,
+    TResult Function(List<Product> products)? productsLoaded,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1416,7 +1416,7 @@ class _$_ProductLoaded implements _ProductLoaded {
     required TResult Function() loading,
     required TResult Function(String? msg) error,
     required TResult Function(Product product) productLoaded,
-    required TResult Function(List<Product> product) productsLoaded,
+    required TResult Function(List<Product> products) productsLoaded,
   }) {
     return productLoaded(product);
   }
@@ -1428,7 +1428,7 @@ class _$_ProductLoaded implements _ProductLoaded {
     TResult Function()? loading,
     TResult Function(String? msg)? error,
     TResult Function(Product product)? productLoaded,
-    TResult Function(List<Product> product)? productsLoaded,
+    TResult Function(List<Product> products)? productsLoaded,
   }) {
     return productLoaded?.call(product);
   }
@@ -1440,7 +1440,7 @@ class _$_ProductLoaded implements _ProductLoaded {
     TResult Function()? loading,
     TResult Function(String? msg)? error,
     TResult Function(Product product)? productLoaded,
-    TResult Function(List<Product> product)? productsLoaded,
+    TResult Function(List<Product> products)? productsLoaded,
     required TResult orElse(),
   }) {
     if (productLoaded != null) {
@@ -1504,7 +1504,7 @@ abstract class _$ProductsLoadedCopyWith<$Res> {
   factory _$ProductsLoadedCopyWith(
           _ProductsLoaded value, $Res Function(_ProductsLoaded) then) =
       __$ProductsLoadedCopyWithImpl<$Res>;
-  $Res call({List<Product> product});
+  $Res call({List<Product> products});
 }
 
 /// @nodoc
@@ -1520,12 +1520,12 @@ class __$ProductsLoadedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? product = freezed,
+    Object? products = freezed,
   }) {
     return _then(_ProductsLoaded(
-      product == freezed
-          ? _value.product
-          : product // ignore: cast_nullable_to_non_nullable
+      products == freezed
+          ? _value.products
+          : products // ignore: cast_nullable_to_non_nullable
               as List<Product>,
     ));
   }
@@ -1534,14 +1534,14 @@ class __$ProductsLoadedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ProductsLoaded implements _ProductsLoaded {
-  const _$_ProductsLoaded(this.product);
+  const _$_ProductsLoaded(this.products);
 
   @override
-  final List<Product> product;
+  final List<Product> products;
 
   @override
   String toString() {
-    return 'ProductState.productsLoaded(product: $product)';
+    return 'ProductState.productsLoaded(products: $products)';
   }
 
   @override
@@ -1549,12 +1549,12 @@ class _$_ProductsLoaded implements _ProductsLoaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ProductsLoaded &&
-            const DeepCollectionEquality().equals(other.product, product));
+            const DeepCollectionEquality().equals(other.products, products));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(product));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(products));
 
   @JsonKey(ignore: true)
   @override
@@ -1568,9 +1568,9 @@ class _$_ProductsLoaded implements _ProductsLoaded {
     required TResult Function() loading,
     required TResult Function(String? msg) error,
     required TResult Function(Product product) productLoaded,
-    required TResult Function(List<Product> product) productsLoaded,
+    required TResult Function(List<Product> products) productsLoaded,
   }) {
-    return productsLoaded(product);
+    return productsLoaded(products);
   }
 
   @override
@@ -1580,9 +1580,9 @@ class _$_ProductsLoaded implements _ProductsLoaded {
     TResult Function()? loading,
     TResult Function(String? msg)? error,
     TResult Function(Product product)? productLoaded,
-    TResult Function(List<Product> product)? productsLoaded,
+    TResult Function(List<Product> products)? productsLoaded,
   }) {
-    return productsLoaded?.call(product);
+    return productsLoaded?.call(products);
   }
 
   @override
@@ -1592,11 +1592,11 @@ class _$_ProductsLoaded implements _ProductsLoaded {
     TResult Function()? loading,
     TResult Function(String? msg)? error,
     TResult Function(Product product)? productLoaded,
-    TResult Function(List<Product> product)? productsLoaded,
+    TResult Function(List<Product> products)? productsLoaded,
     required TResult orElse(),
   }) {
     if (productsLoaded != null) {
-      return productsLoaded(product);
+      return productsLoaded(products);
     }
     return orElse();
   }
@@ -1643,9 +1643,9 @@ class _$_ProductsLoaded implements _ProductsLoaded {
 }
 
 abstract class _ProductsLoaded implements ProductState {
-  const factory _ProductsLoaded(List<Product> product) = _$_ProductsLoaded;
+  const factory _ProductsLoaded(List<Product> products) = _$_ProductsLoaded;
 
-  List<Product> get product;
+  List<Product> get products;
   @JsonKey(ignore: true)
   _$ProductsLoadedCopyWith<_ProductsLoaded> get copyWith =>
       throw _privateConstructorUsedError;

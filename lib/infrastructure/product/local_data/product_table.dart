@@ -7,5 +7,6 @@ create table if not exists $tableProduct (
   $columnBarcode text,
   $columnPrice real not null,
   $columnImage text not null,
-  $columnCategory text not null,
+  $columnCategory text not null
+)
 ''';
