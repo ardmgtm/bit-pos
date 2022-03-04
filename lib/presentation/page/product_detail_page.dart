@@ -2,10 +2,9 @@ import 'package:bit_pos/presentation/widget/base64_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../application/bloc/product_bloc.dart';
+import '../../application/bloc/product/product_bloc.dart';
 import '../../domain/product/product.dart';
 import '../core/currency_formatter.dart';
-import '../core/image_helper.dart';
 
 class ProductDetail extends StatelessWidget {
   final Product product;

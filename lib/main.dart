@@ -1,8 +1,8 @@
-import 'package:bit_pos/application/bloc/product_bloc.dart';
 import 'package:bit_pos/presentation/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'application/bloc/product/product_bloc.dart';
 import 'injection.dart';
 
 void main() {

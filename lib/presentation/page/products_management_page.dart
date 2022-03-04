@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../application/bloc/product_bloc.dart';
-import '../../injection.dart';
+import '../../application/bloc/product/product_bloc.dart';
 import '../routes.dart';
 import '../widget/widgets.dart';
 

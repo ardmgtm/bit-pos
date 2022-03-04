@@ -7,7 +7,7 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'application/bloc/product_bloc.dart' as _i6;
+import 'application/bloc/product/product_bloc.dart' as _i6;
 import 'domain/product/product_repository.dart' as _i4;
 import 'infrastructure/product/local_data/product_local_data_source.dart'
     as _i3;
