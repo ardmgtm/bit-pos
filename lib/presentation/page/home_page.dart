@@ -99,6 +99,7 @@ class MenuItem extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Theme.of(context).primaryColor,
+                fontSize: 12,
                 fontWeight: FontWeight.bold,
               ),
             )

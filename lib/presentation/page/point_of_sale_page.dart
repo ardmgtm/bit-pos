@@ -1,11 +1,11 @@
 import 'package:badges/badges.dart';
-import 'package:bit_pos/presentation/widget/cart_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/bloc/cart/cart_bloc.dart';
 import '../../application/bloc/product/product_bloc.dart';
 import '../../injection.dart';
+import '../widget/cart_panel.dart';
 import '../widget/widgets.dart';
 
 class PointOfSalePage extends StatelessWidget {
@@ -58,7 +58,7 @@ class PointOfSalePage extends StatelessWidget {
                 animationType: BadgeAnimationType.scale,
                 padding: const EdgeInsets.all(8),
                 elevation: 0,
-                badgeColor: Colors.orange,
+                badgeColor: Theme.of(context).colorScheme.secondary,
                 child: FloatingActionButton(
                   onPressed: () => Scaffold.of(context).openEndDrawer(),
                   elevation: 0,

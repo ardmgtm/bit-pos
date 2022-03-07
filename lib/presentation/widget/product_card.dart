@@ -46,7 +46,10 @@ class ListviewProductCard extends StatelessWidget {
                       product.name,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.headline6,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     Text(
                       product.category,

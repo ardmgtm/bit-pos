@@ -1,9 +1,9 @@
-import 'presentation/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'application/bloc/product/product_bloc.dart';
 import 'injection.dart';
+import 'presentation/routes.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,8 +26,10 @@ class MyApp extends StatelessWidget {
         title: 'Bit Point of Sale',
         theme: ThemeData(
           primaryColor: Colors.deepPurple,
-          colorScheme:
-              ThemeData().colorScheme.copyWith(primary: Colors.deepPurple),
+          colorScheme: ThemeData().colorScheme.copyWith(
+                primary: Colors.deepPurple,
+                secondary: Colors.orange,
+              ),
         ),
         initialRoute: BitPosRoutes.home,
         onGenerateRoute: (settings) => MaterialPageRoute(

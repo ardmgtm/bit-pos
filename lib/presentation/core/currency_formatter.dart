@@ -4,13 +4,24 @@ import "package:intl/intl.dart";
 class CurrencyFormatter {
   static final NumberFormat _formatter = NumberFormat.currency(
       locale: 'id',
-      // symbol: 'Rp ',
+      symbol: 'Rp ',
       decimalDigits: 0,
       customPattern: '\u00A4 #,###');
   static NumberFormat get formatter => _formatter;
 
-  static String format(double number) {
-    String convert = _formatter.format(number);
+  static final NumberFormat _compactFormatter = NumberFormat.compactCurrency(
+    locale: 'id',
+    symbol: 'Rp ',
+    decimalDigits: 0,
+  );
+
+  static String format(double number, {bool autoCompact = false}) {
+    String convert = '';
+    if (autoCompact == true && number > 999999) {
+      convert = _compactFormatter.format(number);
+    } else {
+      convert = _formatter.format(number);
+    }
     return convert;
   }
 

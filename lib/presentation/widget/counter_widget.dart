@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 class CounterWidget extends StatefulWidget {
   final Function(int value) onValueChange;
+  final int? initVal;
 
   const CounterWidget({
     Key? key,
     required this.onValueChange,
+    this.initVal,
   }) : super(key: key);
 
   @override
@@ -13,11 +15,11 @@ class CounterWidget extends StatefulWidget {
 }
 
 class _CounterWidgetState extends State<CounterWidget> {
-  int _count = 1;
+  late int _count;
 
   @override
   void initState() {
-    _count = 1;
+    _count = widget.initVal ?? 1;
     super.initState();
   }
 

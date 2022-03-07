@@ -33,6 +33,13 @@ class _$CartEventTearOff {
       index,
     );
   }
+
+  _ChangeItemCount changeItemCount(int index, int value) {
+    return _ChangeItemCount(
+      index,
+      value,
+    );
+  }
 }
 
 /// @nodoc
@@ -45,6 +52,7 @@ mixin _$CartEvent {
     required TResult Function() started,
     required TResult Function(CartItem item) addItem,
     required TResult Function(int index) removeItem,
+    required TResult Function(int index, int value) changeItemCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,6 +60,7 @@ mixin _$CartEvent {
     TResult Function()? started,
     TResult Function(CartItem item)? addItem,
     TResult Function(int index)? removeItem,
+    TResult Function(int index, int value)? changeItemCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,6 +68,7 @@ mixin _$CartEvent {
     TResult Function()? started,
     TResult Function(CartItem item)? addItem,
     TResult Function(int index)? removeItem,
+    TResult Function(int index, int value)? changeItemCount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,6 +77,7 @@ mixin _$CartEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_AddItem value) addItem,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_ChangeItemCount value) changeItemCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,6 +85,7 @@ mixin _$CartEvent {
     TResult Function(_Started value)? started,
     TResult Function(_AddItem value)? addItem,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ChangeItemCount value)? changeItemCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +93,7 @@ mixin _$CartEvent {
     TResult Function(_Started value)? started,
     TResult Function(_AddItem value)? addItem,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ChangeItemCount value)? changeItemCount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -142,6 +155,7 @@ class _$_Started implements _Started {
     required TResult Function() started,
     required TResult Function(CartItem item) addItem,
     required TResult Function(int index) removeItem,
+    required TResult Function(int index, int value) changeItemCount,
   }) {
     return started();
   }
@@ -152,6 +166,7 @@ class _$_Started implements _Started {
     TResult Function()? started,
     TResult Function(CartItem item)? addItem,
     TResult Function(int index)? removeItem,
+    TResult Function(int index, int value)? changeItemCount,
   }) {
     return started?.call();
   }
@@ -162,6 +177,7 @@ class _$_Started implements _Started {
     TResult Function()? started,
     TResult Function(CartItem item)? addItem,
     TResult Function(int index)? removeItem,
+    TResult Function(int index, int value)? changeItemCount,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -176,6 +192,7 @@ class _$_Started implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(_AddItem value) addItem,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_ChangeItemCount value) changeItemCount,
   }) {
     return started(this);
   }
@@ -186,6 +203,7 @@ class _$_Started implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(_AddItem value)? addItem,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ChangeItemCount value)? changeItemCount,
   }) {
     return started?.call(this);
   }
@@ -196,6 +214,7 @@ class _$_Started implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(_AddItem value)? addItem,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ChangeItemCount value)? changeItemCount,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -283,6 +302,7 @@ class _$_AddItem implements _AddItem {
     required TResult Function() started,
     required TResult Function(CartItem item) addItem,
     required TResult Function(int index) removeItem,
+    required TResult Function(int index, int value) changeItemCount,
   }) {
     return addItem(item);
   }
@@ -293,6 +313,7 @@ class _$_AddItem implements _AddItem {
     TResult Function()? started,
     TResult Function(CartItem item)? addItem,
     TResult Function(int index)? removeItem,
+    TResult Function(int index, int value)? changeItemCount,
   }) {
     return addItem?.call(item);
   }
@@ -303,6 +324,7 @@ class _$_AddItem implements _AddItem {
     TResult Function()? started,
     TResult Function(CartItem item)? addItem,
     TResult Function(int index)? removeItem,
+    TResult Function(int index, int value)? changeItemCount,
     required TResult orElse(),
   }) {
     if (addItem != null) {
@@ -317,6 +339,7 @@ class _$_AddItem implements _AddItem {
     required TResult Function(_Started value) started,
     required TResult Function(_AddItem value) addItem,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_ChangeItemCount value) changeItemCount,
   }) {
     return addItem(this);
   }
@@ -327,6 +350,7 @@ class _$_AddItem implements _AddItem {
     TResult Function(_Started value)? started,
     TResult Function(_AddItem value)? addItem,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ChangeItemCount value)? changeItemCount,
   }) {
     return addItem?.call(this);
   }
@@ -337,6 +361,7 @@ class _$_AddItem implements _AddItem {
     TResult Function(_Started value)? started,
     TResult Function(_AddItem value)? addItem,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ChangeItemCount value)? changeItemCount,
     required TResult orElse(),
   }) {
     if (addItem != null) {
@@ -422,6 +447,7 @@ class _$_RemoveItem implements _RemoveItem {
     required TResult Function() started,
     required TResult Function(CartItem item) addItem,
     required TResult Function(int index) removeItem,
+    required TResult Function(int index, int value) changeItemCount,
   }) {
     return removeItem(index);
   }
@@ -432,6 +458,7 @@ class _$_RemoveItem implements _RemoveItem {
     TResult Function()? started,
     TResult Function(CartItem item)? addItem,
     TResult Function(int index)? removeItem,
+    TResult Function(int index, int value)? changeItemCount,
   }) {
     return removeItem?.call(index);
   }
@@ -442,6 +469,7 @@ class _$_RemoveItem implements _RemoveItem {
     TResult Function()? started,
     TResult Function(CartItem item)? addItem,
     TResult Function(int index)? removeItem,
+    TResult Function(int index, int value)? changeItemCount,
     required TResult orElse(),
   }) {
     if (removeItem != null) {
@@ -456,6 +484,7 @@ class _$_RemoveItem implements _RemoveItem {
     required TResult Function(_Started value) started,
     required TResult Function(_AddItem value) addItem,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_ChangeItemCount value) changeItemCount,
   }) {
     return removeItem(this);
   }
@@ -466,6 +495,7 @@ class _$_RemoveItem implements _RemoveItem {
     TResult Function(_Started value)? started,
     TResult Function(_AddItem value)? addItem,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ChangeItemCount value)? changeItemCount,
   }) {
     return removeItem?.call(this);
   }
@@ -476,6 +506,7 @@ class _$_RemoveItem implements _RemoveItem {
     TResult Function(_Started value)? started,
     TResult Function(_AddItem value)? addItem,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ChangeItemCount value)? changeItemCount,
     required TResult orElse(),
   }) {
     if (removeItem != null) {
@@ -491,6 +522,162 @@ abstract class _RemoveItem implements CartEvent {
   int get index;
   @JsonKey(ignore: true)
   _$RemoveItemCopyWith<_RemoveItem> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ChangeItemCountCopyWith<$Res> {
+  factory _$ChangeItemCountCopyWith(
+          _ChangeItemCount value, $Res Function(_ChangeItemCount) then) =
+      __$ChangeItemCountCopyWithImpl<$Res>;
+  $Res call({int index, int value});
+}
+
+/// @nodoc
+class __$ChangeItemCountCopyWithImpl<$Res> extends _$CartEventCopyWithImpl<$Res>
+    implements _$ChangeItemCountCopyWith<$Res> {
+  __$ChangeItemCountCopyWithImpl(
+      _ChangeItemCount _value, $Res Function(_ChangeItemCount) _then)
+      : super(_value, (v) => _then(v as _ChangeItemCount));
+
+  @override
+  _ChangeItemCount get _value => super._value as _ChangeItemCount;
+
+  @override
+  $Res call({
+    Object? index = freezed,
+    Object? value = freezed,
+  }) {
+    return _then(_ChangeItemCount(
+      index == freezed
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+      value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeItemCount implements _ChangeItemCount {
+  const _$_ChangeItemCount(this.index, this.value);
+
+  @override
+  final int index;
+  @override
+  final int value;
+
+  @override
+  String toString() {
+    return 'CartEvent.changeItemCount(index: $index, value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ChangeItemCount &&
+            const DeepCollectionEquality().equals(other.index, index) &&
+            const DeepCollectionEquality().equals(other.value, value));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(index),
+      const DeepCollectionEquality().hash(value));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangeItemCountCopyWith<_ChangeItemCount> get copyWith =>
+      __$ChangeItemCountCopyWithImpl<_ChangeItemCount>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(CartItem item) addItem,
+    required TResult Function(int index) removeItem,
+    required TResult Function(int index, int value) changeItemCount,
+  }) {
+    return changeItemCount(index, value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(CartItem item)? addItem,
+    TResult Function(int index)? removeItem,
+    TResult Function(int index, int value)? changeItemCount,
+  }) {
+    return changeItemCount?.call(index, value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(CartItem item)? addItem,
+    TResult Function(int index)? removeItem,
+    TResult Function(int index, int value)? changeItemCount,
+    required TResult orElse(),
+  }) {
+    if (changeItemCount != null) {
+      return changeItemCount(index, value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_AddItem value) addItem,
+    required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_ChangeItemCount value) changeItemCount,
+  }) {
+    return changeItemCount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_AddItem value)? addItem,
+    TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ChangeItemCount value)? changeItemCount,
+  }) {
+    return changeItemCount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_AddItem value)? addItem,
+    TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ChangeItemCount value)? changeItemCount,
+    required TResult orElse(),
+  }) {
+    if (changeItemCount != null) {
+      return changeItemCount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeItemCount implements CartEvent {
+  const factory _ChangeItemCount(int index, int value) = _$_ChangeItemCount;
+
+  int get index;
+  int get value;
+  @JsonKey(ignore: true)
+  _$ChangeItemCountCopyWith<_ChangeItemCount> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
