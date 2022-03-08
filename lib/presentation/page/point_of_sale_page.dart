@@ -30,13 +30,9 @@ class PointOfSalePage extends StatelessWidget {
             return state.maybeMap(
               orElse: () => Container(),
               productsLoaded: (currentState) {
-                return BlocBuilder<CartBloc, CartState>(
-                  builder: (context, state) {
-                    return ProductGridView(
-                      products: currentState.products,
-                      blocContext: context,
-                    );
-                  },
+                return ProductGridView(
+                  products: currentState.products,
+                  blocContext: context,
                 );
               },
             );
