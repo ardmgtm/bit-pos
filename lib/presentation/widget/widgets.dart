@@ -4,3 +4,4 @@ export 'image_upload_widget.dart';
 export 'product_card.dart';
 export 'products_grid_view.dart';
 export 'product_image.dart';
+export 'product_dialog.dart';

@@ -28,7 +28,12 @@ class ProductLocalDataSource {
 
   Future<Product> updateProduct(Product product) async {
     var db = await localDb.database;
-    var id = await db.update(tableProduct, product.toJson());
+    var id = await db.update(
+      tableProduct,
+      product.toJson(),
+      where: '$columnId = ?',
+      whereArgs: [product.id],
+    );
 
     Product newProduct = product.copyWith(id: id);
     return newProduct;

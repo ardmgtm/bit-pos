@@ -38,7 +38,8 @@ class BitPosRoutes {
       case productManagement:
         return const ProductsManagementPage();
       case addProduct:
-        return const AddProductPage();
+        Product? product = arguments == null ? null : (arguments as Product);
+        return AddProductPage(product: product);
       case productDetail:
         Product product = arguments as Product;
         return ProductDetail(product: product);

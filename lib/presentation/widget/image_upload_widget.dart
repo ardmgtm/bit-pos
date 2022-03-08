@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bit_pos/presentation/widget/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -7,9 +8,12 @@ import '../core/image_helper.dart';
 
 class ImageUploadWidget extends StatefulWidget {
   final Function(String)? onImageUpload;
+  final String? base64str;
+
   const ImageUploadWidget({
     Key? key,
     this.onImageUpload,
+    this.base64str,
   }) : super(key: key);
 
   @override
@@ -17,10 +21,17 @@ class ImageUploadWidget extends StatefulWidget {
 }
 
 class _ImageUploadWidgetState extends State<ImageUploadWidget> {
-  Image? image;
+  Widget? image;
 
   @override
   Widget build(BuildContext context) {
+    if (widget.base64str != null && widget.base64str != '') {
+      image = Base64Image(
+        base64String: widget.base64str!,
+        height: 150,
+        width: 150,
+      );
+    }
     return GestureDetector(
       onTap: () {
         showDialog(

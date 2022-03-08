@@ -1,3 +1,4 @@
+import 'package:bit_pos/presentation/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,7 +25,9 @@ class ProductDetail extends StatelessWidget {
             itemBuilder: (BuildContext context) {
               return [
                 PopupMenuItem(
-                  onTap: () {},
+                  onTap: () {
+                    _editProduct(context);
+                  },
                   child: Row(
                     children: const [
                       Icon(
@@ -120,6 +123,16 @@ class ProductDetail extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Future<dynamic> _editProduct(BuildContext context) {
+    return Future.delayed(
+      const Duration(seconds: 0),
+      () => Navigator.of(context).pushNamed(
+        BitPosRoutes.addProduct,
+        arguments: product,
       ),
     );
   }

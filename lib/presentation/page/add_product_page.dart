@@ -8,43 +8,62 @@ import '../core/currency_formatter.dart';
 import '../widget/widgets.dart';
 
 class AddProductPage extends StatelessWidget {
-  const AddProductPage({Key? key}) : super(key: key);
+  final Product? product;
+
+  const AddProductPage({
+    Key? key,
+    this.product,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController _productNameInput = TextEditingController();
-    TextEditingController _categoryInput = TextEditingController();
-    TextEditingController _priceInput = TextEditingController();
-    TextEditingController _barcodeInput = TextEditingController();
+    TextEditingController _productNameInput =
+        TextEditingController(text: product?.name);
+    TextEditingController _categoryInput =
+        TextEditingController(text: product?.category);
+    TextEditingController _priceInput = TextEditingController(
+      text: product != null ? CurrencyFormatter.format(product!.price) : '',
+    );
+    TextEditingController _barcodeInput =
+        TextEditingController(text: product?.barcode);
 
-    String? _base64imageselected;
+    String? _base64imageselected = product?.image;
     final _form = GlobalKey<FormState>();
+    final bool _isEdit = product != null;
 
     return BlocBuilder<ProductBloc, ProductState>(
       builder: (context, state) {
         return GestureDetector(
           onTap: () {
             FocusScope.of(context).unfocus();
-            TextEditingController().clear();
           },
           child: Scaffold(
             appBar: AppBar(
-              title: const Text('Add Product'),
+              title: _isEdit
+                  ? const Text('Edit Product')
+                  : const Text('Add Product'),
               elevation: 0,
               actions: [
                 IconButton(
                   onPressed: () {
                     final isValid = _form.currentState!.validate();
                     if (!isValid) return;
-                    var product = Product(
+                    var newProduct = Product(
+                      id: product?.id,
                       name: _productNameInput.text,
                       price: CurrencyFormatter.parse(_priceInput.text),
                       image: _base64imageselected ?? '',
                       category: _categoryInput.text,
                     );
-                    context
-                        .read<ProductBloc>()
-                        .add(ProductEvent.createProduct(product));
+                    if (_isEdit) {
+                      context
+                          .read<ProductBloc>()
+                          .add(ProductEvent.updateProduct(newProduct));
+                    } else {
+                      context
+                          .read<ProductBloc>()
+                          .add(ProductEvent.createProduct(newProduct));
+                    }
                     Navigator.pop(context);
                   },
                   icon: const Text(
@@ -63,6 +82,7 @@ class AddProductPage extends StatelessWidget {
                   child: Column(
                     children: [
                       ImageUploadWidget(
+                        base64str: product?.image,
                         onImageUpload: (imgStr) {
                           _base64imageselected = imgStr;
                         },
