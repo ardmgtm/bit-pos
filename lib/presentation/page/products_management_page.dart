@@ -45,7 +45,7 @@ class ProductsManagementPage extends StatelessWidget {
                             Navigator.pushNamed(
                               context,
                               BitPosRoutes.productDetail,
-                              arguments: product,
+                              arguments: product.id,
                             ).then(
                               (value) => context
                                   .read<ProductBloc>()

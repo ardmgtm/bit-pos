@@ -51,4 +51,14 @@ class ProductRepositoryImpl implements ProductRepository {
       return const Right(ProductFailure.unexpected());
     }
   }
+
+  @override
+  Future<Either<Product, ProductFailure>> getProduct(int id) async {
+    try {
+      var product = await localDataSource.getProduct(id);
+      return Left(product);
+    } catch (e) {
+      return const Right(ProductFailure.unexpected());
+    }
+  }
 }

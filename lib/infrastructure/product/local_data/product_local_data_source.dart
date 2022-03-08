@@ -39,6 +39,17 @@ class ProductLocalDataSource {
     return newProduct;
   }
 
+  Future<Product> getProduct(int id) async {
+    var db = await localDb.database;
+    var json = await db.query(
+      tableProduct,
+      where: '$columnId = ?',
+      whereArgs: [id],
+    );
+
+    return Product.fromJson(json[0]);
+  }
+
   Future<int> deleteProduct(int id) async {
     var db = await localDb.database;
     var deletedId = await db.delete(

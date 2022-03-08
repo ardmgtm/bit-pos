@@ -38,6 +38,12 @@ class _$ProductEventTearOff {
     );
   }
 
+  _GetProduct getProduct(int id) {
+    return _GetProduct(
+      id,
+    );
+  }
+
   _DeleteProduct deleteProduct(int id) {
     return _DeleteProduct(
       id,
@@ -56,6 +62,7 @@ mixin _$ProductEvent {
     required TResult Function(Product product) createProduct,
     required TResult Function() getProducts,
     required TResult Function(Product product) updateProduct,
+    required TResult Function(int id) getProduct,
     required TResult Function(int id) deleteProduct,
   }) =>
       throw _privateConstructorUsedError;
@@ -65,6 +72,7 @@ mixin _$ProductEvent {
     TResult Function(Product product)? createProduct,
     TResult Function()? getProducts,
     TResult Function(Product product)? updateProduct,
+    TResult Function(int id)? getProduct,
     TResult Function(int id)? deleteProduct,
   }) =>
       throw _privateConstructorUsedError;
@@ -74,6 +82,7 @@ mixin _$ProductEvent {
     TResult Function(Product product)? createProduct,
     TResult Function()? getProducts,
     TResult Function(Product product)? updateProduct,
+    TResult Function(int id)? getProduct,
     TResult Function(int id)? deleteProduct,
     required TResult orElse(),
   }) =>
@@ -84,6 +93,7 @@ mixin _$ProductEvent {
     required TResult Function(_CreateProduct value) createProduct,
     required TResult Function(_GetProducts value) getProducts,
     required TResult Function(_UpdateProduct value) updateProduct,
+    required TResult Function(_GetProduct value) getProduct,
     required TResult Function(_DeleteProduct value) deleteProduct,
   }) =>
       throw _privateConstructorUsedError;
@@ -93,6 +103,7 @@ mixin _$ProductEvent {
     TResult Function(_CreateProduct value)? createProduct,
     TResult Function(_GetProducts value)? getProducts,
     TResult Function(_UpdateProduct value)? updateProduct,
+    TResult Function(_GetProduct value)? getProduct,
     TResult Function(_DeleteProduct value)? deleteProduct,
   }) =>
       throw _privateConstructorUsedError;
@@ -102,6 +113,7 @@ mixin _$ProductEvent {
     TResult Function(_CreateProduct value)? createProduct,
     TResult Function(_GetProducts value)? getProducts,
     TResult Function(_UpdateProduct value)? updateProduct,
+    TResult Function(_GetProduct value)? getProduct,
     TResult Function(_DeleteProduct value)? deleteProduct,
     required TResult orElse(),
   }) =>
@@ -166,6 +178,7 @@ class _$_Started implements _Started {
     required TResult Function(Product product) createProduct,
     required TResult Function() getProducts,
     required TResult Function(Product product) updateProduct,
+    required TResult Function(int id) getProduct,
     required TResult Function(int id) deleteProduct,
   }) {
     return started();
@@ -178,6 +191,7 @@ class _$_Started implements _Started {
     TResult Function(Product product)? createProduct,
     TResult Function()? getProducts,
     TResult Function(Product product)? updateProduct,
+    TResult Function(int id)? getProduct,
     TResult Function(int id)? deleteProduct,
   }) {
     return started?.call();
@@ -190,6 +204,7 @@ class _$_Started implements _Started {
     TResult Function(Product product)? createProduct,
     TResult Function()? getProducts,
     TResult Function(Product product)? updateProduct,
+    TResult Function(int id)? getProduct,
     TResult Function(int id)? deleteProduct,
     required TResult orElse(),
   }) {
@@ -206,6 +221,7 @@ class _$_Started implements _Started {
     required TResult Function(_CreateProduct value) createProduct,
     required TResult Function(_GetProducts value) getProducts,
     required TResult Function(_UpdateProduct value) updateProduct,
+    required TResult Function(_GetProduct value) getProduct,
     required TResult Function(_DeleteProduct value) deleteProduct,
   }) {
     return started(this);
@@ -218,6 +234,7 @@ class _$_Started implements _Started {
     TResult Function(_CreateProduct value)? createProduct,
     TResult Function(_GetProducts value)? getProducts,
     TResult Function(_UpdateProduct value)? updateProduct,
+    TResult Function(_GetProduct value)? getProduct,
     TResult Function(_DeleteProduct value)? deleteProduct,
   }) {
     return started?.call(this);
@@ -230,6 +247,7 @@ class _$_Started implements _Started {
     TResult Function(_CreateProduct value)? createProduct,
     TResult Function(_GetProducts value)? getProducts,
     TResult Function(_UpdateProduct value)? updateProduct,
+    TResult Function(_GetProduct value)? getProduct,
     TResult Function(_DeleteProduct value)? deleteProduct,
     required TResult orElse(),
   }) {
@@ -322,6 +340,7 @@ class _$_CreateProduct implements _CreateProduct {
     required TResult Function(Product product) createProduct,
     required TResult Function() getProducts,
     required TResult Function(Product product) updateProduct,
+    required TResult Function(int id) getProduct,
     required TResult Function(int id) deleteProduct,
   }) {
     return createProduct(product);
@@ -334,6 +353,7 @@ class _$_CreateProduct implements _CreateProduct {
     TResult Function(Product product)? createProduct,
     TResult Function()? getProducts,
     TResult Function(Product product)? updateProduct,
+    TResult Function(int id)? getProduct,
     TResult Function(int id)? deleteProduct,
   }) {
     return createProduct?.call(product);
@@ -346,6 +366,7 @@ class _$_CreateProduct implements _CreateProduct {
     TResult Function(Product product)? createProduct,
     TResult Function()? getProducts,
     TResult Function(Product product)? updateProduct,
+    TResult Function(int id)? getProduct,
     TResult Function(int id)? deleteProduct,
     required TResult orElse(),
   }) {
@@ -362,6 +383,7 @@ class _$_CreateProduct implements _CreateProduct {
     required TResult Function(_CreateProduct value) createProduct,
     required TResult Function(_GetProducts value) getProducts,
     required TResult Function(_UpdateProduct value) updateProduct,
+    required TResult Function(_GetProduct value) getProduct,
     required TResult Function(_DeleteProduct value) deleteProduct,
   }) {
     return createProduct(this);
@@ -374,6 +396,7 @@ class _$_CreateProduct implements _CreateProduct {
     TResult Function(_CreateProduct value)? createProduct,
     TResult Function(_GetProducts value)? getProducts,
     TResult Function(_UpdateProduct value)? updateProduct,
+    TResult Function(_GetProduct value)? getProduct,
     TResult Function(_DeleteProduct value)? deleteProduct,
   }) {
     return createProduct?.call(this);
@@ -386,6 +409,7 @@ class _$_CreateProduct implements _CreateProduct {
     TResult Function(_CreateProduct value)? createProduct,
     TResult Function(_GetProducts value)? getProducts,
     TResult Function(_UpdateProduct value)? updateProduct,
+    TResult Function(_GetProduct value)? getProduct,
     TResult Function(_DeleteProduct value)? deleteProduct,
     required TResult orElse(),
   }) {
@@ -449,6 +473,7 @@ class _$_GetProducts implements _GetProducts {
     required TResult Function(Product product) createProduct,
     required TResult Function() getProducts,
     required TResult Function(Product product) updateProduct,
+    required TResult Function(int id) getProduct,
     required TResult Function(int id) deleteProduct,
   }) {
     return getProducts();
@@ -461,6 +486,7 @@ class _$_GetProducts implements _GetProducts {
     TResult Function(Product product)? createProduct,
     TResult Function()? getProducts,
     TResult Function(Product product)? updateProduct,
+    TResult Function(int id)? getProduct,
     TResult Function(int id)? deleteProduct,
   }) {
     return getProducts?.call();
@@ -473,6 +499,7 @@ class _$_GetProducts implements _GetProducts {
     TResult Function(Product product)? createProduct,
     TResult Function()? getProducts,
     TResult Function(Product product)? updateProduct,
+    TResult Function(int id)? getProduct,
     TResult Function(int id)? deleteProduct,
     required TResult orElse(),
   }) {
@@ -489,6 +516,7 @@ class _$_GetProducts implements _GetProducts {
     required TResult Function(_CreateProduct value) createProduct,
     required TResult Function(_GetProducts value) getProducts,
     required TResult Function(_UpdateProduct value) updateProduct,
+    required TResult Function(_GetProduct value) getProduct,
     required TResult Function(_DeleteProduct value) deleteProduct,
   }) {
     return getProducts(this);
@@ -501,6 +529,7 @@ class _$_GetProducts implements _GetProducts {
     TResult Function(_CreateProduct value)? createProduct,
     TResult Function(_GetProducts value)? getProducts,
     TResult Function(_UpdateProduct value)? updateProduct,
+    TResult Function(_GetProduct value)? getProduct,
     TResult Function(_DeleteProduct value)? deleteProduct,
   }) {
     return getProducts?.call(this);
@@ -513,6 +542,7 @@ class _$_GetProducts implements _GetProducts {
     TResult Function(_CreateProduct value)? createProduct,
     TResult Function(_GetProducts value)? getProducts,
     TResult Function(_UpdateProduct value)? updateProduct,
+    TResult Function(_GetProduct value)? getProduct,
     TResult Function(_DeleteProduct value)? deleteProduct,
     required TResult orElse(),
   }) {
@@ -605,6 +635,7 @@ class _$_UpdateProduct implements _UpdateProduct {
     required TResult Function(Product product) createProduct,
     required TResult Function() getProducts,
     required TResult Function(Product product) updateProduct,
+    required TResult Function(int id) getProduct,
     required TResult Function(int id) deleteProduct,
   }) {
     return updateProduct(product);
@@ -617,6 +648,7 @@ class _$_UpdateProduct implements _UpdateProduct {
     TResult Function(Product product)? createProduct,
     TResult Function()? getProducts,
     TResult Function(Product product)? updateProduct,
+    TResult Function(int id)? getProduct,
     TResult Function(int id)? deleteProduct,
   }) {
     return updateProduct?.call(product);
@@ -629,6 +661,7 @@ class _$_UpdateProduct implements _UpdateProduct {
     TResult Function(Product product)? createProduct,
     TResult Function()? getProducts,
     TResult Function(Product product)? updateProduct,
+    TResult Function(int id)? getProduct,
     TResult Function(int id)? deleteProduct,
     required TResult orElse(),
   }) {
@@ -645,6 +678,7 @@ class _$_UpdateProduct implements _UpdateProduct {
     required TResult Function(_CreateProduct value) createProduct,
     required TResult Function(_GetProducts value) getProducts,
     required TResult Function(_UpdateProduct value) updateProduct,
+    required TResult Function(_GetProduct value) getProduct,
     required TResult Function(_DeleteProduct value) deleteProduct,
   }) {
     return updateProduct(this);
@@ -657,6 +691,7 @@ class _$_UpdateProduct implements _UpdateProduct {
     TResult Function(_CreateProduct value)? createProduct,
     TResult Function(_GetProducts value)? getProducts,
     TResult Function(_UpdateProduct value)? updateProduct,
+    TResult Function(_GetProduct value)? getProduct,
     TResult Function(_DeleteProduct value)? deleteProduct,
   }) {
     return updateProduct?.call(this);
@@ -669,6 +704,7 @@ class _$_UpdateProduct implements _UpdateProduct {
     TResult Function(_CreateProduct value)? createProduct,
     TResult Function(_GetProducts value)? getProducts,
     TResult Function(_UpdateProduct value)? updateProduct,
+    TResult Function(_GetProduct value)? getProduct,
     TResult Function(_DeleteProduct value)? deleteProduct,
     required TResult orElse(),
   }) {
@@ -685,6 +721,163 @@ abstract class _UpdateProduct implements ProductEvent {
   Product get product;
   @JsonKey(ignore: true)
   _$UpdateProductCopyWith<_UpdateProduct> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$GetProductCopyWith<$Res> {
+  factory _$GetProductCopyWith(
+          _GetProduct value, $Res Function(_GetProduct) then) =
+      __$GetProductCopyWithImpl<$Res>;
+  $Res call({int id});
+}
+
+/// @nodoc
+class __$GetProductCopyWithImpl<$Res> extends _$ProductEventCopyWithImpl<$Res>
+    implements _$GetProductCopyWith<$Res> {
+  __$GetProductCopyWithImpl(
+      _GetProduct _value, $Res Function(_GetProduct) _then)
+      : super(_value, (v) => _then(v as _GetProduct));
+
+  @override
+  _GetProduct get _value => super._value as _GetProduct;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(_GetProduct(
+      id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetProduct implements _GetProduct {
+  const _$_GetProduct(this.id);
+
+  @override
+  final int id;
+
+  @override
+  String toString() {
+    return 'ProductEvent.getProduct(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _GetProduct &&
+            const DeepCollectionEquality().equals(other.id, id));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
+
+  @JsonKey(ignore: true)
+  @override
+  _$GetProductCopyWith<_GetProduct> get copyWith =>
+      __$GetProductCopyWithImpl<_GetProduct>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(Product product) createProduct,
+    required TResult Function() getProducts,
+    required TResult Function(Product product) updateProduct,
+    required TResult Function(int id) getProduct,
+    required TResult Function(int id) deleteProduct,
+  }) {
+    return getProduct(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(Product product)? createProduct,
+    TResult Function()? getProducts,
+    TResult Function(Product product)? updateProduct,
+    TResult Function(int id)? getProduct,
+    TResult Function(int id)? deleteProduct,
+  }) {
+    return getProduct?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(Product product)? createProduct,
+    TResult Function()? getProducts,
+    TResult Function(Product product)? updateProduct,
+    TResult Function(int id)? getProduct,
+    TResult Function(int id)? deleteProduct,
+    required TResult orElse(),
+  }) {
+    if (getProduct != null) {
+      return getProduct(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_CreateProduct value) createProduct,
+    required TResult Function(_GetProducts value) getProducts,
+    required TResult Function(_UpdateProduct value) updateProduct,
+    required TResult Function(_GetProduct value) getProduct,
+    required TResult Function(_DeleteProduct value) deleteProduct,
+  }) {
+    return getProduct(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_CreateProduct value)? createProduct,
+    TResult Function(_GetProducts value)? getProducts,
+    TResult Function(_UpdateProduct value)? updateProduct,
+    TResult Function(_GetProduct value)? getProduct,
+    TResult Function(_DeleteProduct value)? deleteProduct,
+  }) {
+    return getProduct?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_CreateProduct value)? createProduct,
+    TResult Function(_GetProducts value)? getProducts,
+    TResult Function(_UpdateProduct value)? updateProduct,
+    TResult Function(_GetProduct value)? getProduct,
+    TResult Function(_DeleteProduct value)? deleteProduct,
+    required TResult orElse(),
+  }) {
+    if (getProduct != null) {
+      return getProduct(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetProduct implements ProductEvent {
+  const factory _GetProduct(int id) = _$_GetProduct;
+
+  int get id;
+  @JsonKey(ignore: true)
+  _$GetProductCopyWith<_GetProduct> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -757,6 +950,7 @@ class _$_DeleteProduct implements _DeleteProduct {
     required TResult Function(Product product) createProduct,
     required TResult Function() getProducts,
     required TResult Function(Product product) updateProduct,
+    required TResult Function(int id) getProduct,
     required TResult Function(int id) deleteProduct,
   }) {
     return deleteProduct(id);
@@ -769,6 +963,7 @@ class _$_DeleteProduct implements _DeleteProduct {
     TResult Function(Product product)? createProduct,
     TResult Function()? getProducts,
     TResult Function(Product product)? updateProduct,
+    TResult Function(int id)? getProduct,
     TResult Function(int id)? deleteProduct,
   }) {
     return deleteProduct?.call(id);
@@ -781,6 +976,7 @@ class _$_DeleteProduct implements _DeleteProduct {
     TResult Function(Product product)? createProduct,
     TResult Function()? getProducts,
     TResult Function(Product product)? updateProduct,
+    TResult Function(int id)? getProduct,
     TResult Function(int id)? deleteProduct,
     required TResult orElse(),
   }) {
@@ -797,6 +993,7 @@ class _$_DeleteProduct implements _DeleteProduct {
     required TResult Function(_CreateProduct value) createProduct,
     required TResult Function(_GetProducts value) getProducts,
     required TResult Function(_UpdateProduct value) updateProduct,
+    required TResult Function(_GetProduct value) getProduct,
     required TResult Function(_DeleteProduct value) deleteProduct,
   }) {
     return deleteProduct(this);
@@ -809,6 +1006,7 @@ class _$_DeleteProduct implements _DeleteProduct {
     TResult Function(_CreateProduct value)? createProduct,
     TResult Function(_GetProducts value)? getProducts,
     TResult Function(_UpdateProduct value)? updateProduct,
+    TResult Function(_GetProduct value)? getProduct,
     TResult Function(_DeleteProduct value)? deleteProduct,
   }) {
     return deleteProduct?.call(this);
@@ -821,6 +1019,7 @@ class _$_DeleteProduct implements _DeleteProduct {
     TResult Function(_CreateProduct value)? createProduct,
     TResult Function(_GetProducts value)? getProducts,
     TResult Function(_UpdateProduct value)? updateProduct,
+    TResult Function(_GetProduct value)? getProduct,
     TResult Function(_DeleteProduct value)? deleteProduct,
     required TResult orElse(),
   }) {

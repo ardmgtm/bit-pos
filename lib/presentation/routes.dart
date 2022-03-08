@@ -41,8 +41,8 @@ class BitPosRoutes {
         Product? product = arguments == null ? null : (arguments as Product);
         return AddProductPage(product: product);
       case productDetail:
-        Product product = arguments as Product;
-        return ProductDetail(product: product);
+        int productId = arguments as int;
+        return ProductDetail(productId: productId);
       case pointOfSale:
         return const PointOfSalePage();
       default:
