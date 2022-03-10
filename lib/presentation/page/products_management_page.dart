@@ -1,6 +1,8 @@
+import 'package:bit_pos/domain/product/product_filter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../core/string_extension.dart';
 import '../../application/bloc/product/product_bloc.dart';
 import '../../application/bloc/product_filter/product_filter_bloc.dart';
 import '../../injection.dart';
@@ -60,7 +62,6 @@ class ProductsManagementPage extends StatelessWidget {
                                     ));
                                   },
                                 );
-                                debugPrint(filterBloc.state.toString());
                               },
                               decoration: const InputDecoration(
                                 hintText: "Search",
@@ -103,31 +104,63 @@ class ProductsManagementPage extends StatelessWidget {
                           return state.maybeMap(
                               orElse: () => Container(),
                               filtered: (filterState) {
-                                var filter = filterState.productFilter.filter;
+                                var productFilter = filterState.productFilter;
                                 return Expanded(
-                                  child: ListView.builder(
-                                    itemCount: currentState.products.length,
-                                    itemBuilder: (_, i) {
-                                      var product = currentState.products[i];
-                                      return Visibility(
-                                        visible: filter[i],
-                                        child: ListviewProductCard(
-                                          product: product,
-                                          onProductCardTap: (product) {
-                                            Navigator.pushNamed(
-                                              context,
-                                              BitPosRoutes.productDetail,
-                                              arguments: product.id,
-                                            ).then(
-                                              (value) => productBlocContext
-                                                  .read<ProductBloc>()
-                                                  .add(const ProductEvent
-                                                      .getProducts()),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        child: CategoryChip(
+                                          productFilter: productFilter,
+                                          onCategorySelected: (category) {
+                                            context
+                                                .read<ProductFilterBloc>()
+                                                .add(
+                                                  ProductFilterEvent.filter(
+                                                      category: category),
+                                                );
+                                          },
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListView.separated(
+                                          itemCount:
+                                              currentState.products.length,
+                                          separatorBuilder: (_, i) {
+                                            return Visibility(
+                                              visible: productFilter.filter[i],
+                                              child: const SizedBox(height: 16),
+                                            );
+                                          },
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 16),
+                                          itemBuilder: (_, i) {
+                                            var product =
+                                                currentState.products[i];
+                                            return Visibility(
+                                              visible: productFilter.filter[i],
+                                              child: ListviewProductCard(
+                                                product: product,
+                                                onProductCardTap: (product) {
+                                                  Navigator.pushNamed(
+                                                    context,
+                                                    BitPosRoutes.productDetail,
+                                                    arguments: product.id,
+                                                  ).then(
+                                                    (value) => productBlocContext
+                                                        .read<ProductBloc>()
+                                                        .add(const ProductEvent
+                                                            .getProducts()),
+                                                  );
+                                                },
+                                              ),
                                             );
                                           },
                                         ),
-                                      );
-                                    },
+                                      ),
+                                    ],
                                   ),
                                 );
                               });
@@ -144,6 +177,57 @@ class ProductsManagementPage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class CategoryChip extends StatefulWidget {
+  final ProductFilter productFilter;
+  final Function(String)? onCategorySelected;
+
+  const CategoryChip({
+    Key? key,
+    required this.productFilter,
+    this.onCategorySelected,
+  }) : super(key: key);
+
+  @override
+  State<CategoryChip> createState() => _CategoryChipState();
+}
+
+class _CategoryChipState extends State<CategoryChip> {
+  int _selectedIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    var categories = widget.productFilter.categoryMap.keys.toList();
+    var counts = widget.productFilter.categoryMap.values.toList();
+
+    return ListView.separated(
+      scrollDirection: Axis.horizontal,
+      itemCount: categories.length,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      separatorBuilder: (ctx, _) => const SizedBox(width: 8),
+      itemBuilder: (context, index) {
+        return ChoiceChip(
+          pressElevation: 0,
+          selectedColor: Theme.of(context).colorScheme.primary,
+          backgroundColor:
+              Theme.of(context).colorScheme.primary.withOpacity(0.5),
+          labelStyle: const TextStyle(color: Colors.white),
+          label:
+              Text('${categories[index].toCapitalized()} (${counts[index]})'),
+          selected: _selectedIndex == index,
+          onSelected: (newVal) {
+            setState(() {
+              _selectedIndex = index;
+            });
+            if (widget.onCategorySelected != null) {
+              widget.onCategorySelected!(categories[index]);
+            }
+          },
+        );
+      },
     );
   }
 }

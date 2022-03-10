@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'product.dart';
@@ -20,10 +19,25 @@ class ProductFilter with _$ProductFilter {
       bool conditionA = product.name
           .toLowerCase()
           .contains(searchFilter?.toLowerCase() ?? '');
-      bool conditionB = categoryFilter == null || categoryFilter == ''
+      bool conditionB = categoryFilter == null ||
+              categoryFilter == '' ||
+              categoryFilter?.toLowerCase() == 'all'
           ? true
-          : product.category == categoryFilter;
+          : product.category.toLowerCase() == categoryFilter?.toLowerCase();
       return conditionA && conditionB;
     }).toList();
+  }
+
+  Map<String, int> get categoryMap {
+    var map = {'all': products.length};
+    map.addAll(
+      groupBy(
+        products,
+        (Product p) => p.category,
+      ).map(
+        (key, value) => MapEntry(key.toLowerCase(), value.length),
+      ),
+    );
+    return map;
   }
 }
