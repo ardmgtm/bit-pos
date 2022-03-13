@@ -18,14 +18,12 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$ProductFailureTearOff {
   const _$ProductFailureTearOff();
 
-  _ProductFailure call({String? message}) {
-    return _ProductFailure(
-      message: message,
-    );
-  }
-
   _LocalDbFailure localDbFailure() {
     return const _LocalDbFailure();
+  }
+
+  _NoDataFailure noDataFailure() {
+    return const _NoDataFailure();
   }
 
   _Unexpected unexpected() {
@@ -39,45 +37,45 @@ const $ProductFailure = _$ProductFailureTearOff();
 /// @nodoc
 mixin _$ProductFailure {
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String? message) $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function() localDbFailure,
+    required TResult Function() noDataFailure,
     required TResult Function() unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? message)? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? localDbFailure,
+    TResult Function()? noDataFailure,
     TResult Function()? unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? message)? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function()? localDbFailure,
+    TResult Function()? noDataFailure,
     TResult Function()? unexpected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ProductFailure value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(_LocalDbFailure value) localDbFailure,
+    required TResult Function(_NoDataFailure value) noDataFailure,
     required TResult Function(_Unexpected value) unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_ProductFailure value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_LocalDbFailure value)? localDbFailure,
+    TResult Function(_NoDataFailure value)? noDataFailure,
     TResult Function(_Unexpected value)? unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ProductFailure value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(_LocalDbFailure value)? localDbFailure,
+    TResult Function(_NoDataFailure value)? noDataFailure,
     TResult Function(_Unexpected value)? unexpected,
     required TResult orElse(),
   }) =>
@@ -99,146 +97,6 @@ class _$ProductFailureCopyWithImpl<$Res>
   final ProductFailure _value;
   // ignore: unused_field
   final $Res Function(ProductFailure) _then;
-}
-
-/// @nodoc
-abstract class _$ProductFailureCopyWith<$Res> {
-  factory _$ProductFailureCopyWith(
-          _ProductFailure value, $Res Function(_ProductFailure) then) =
-      __$ProductFailureCopyWithImpl<$Res>;
-  $Res call({String? message});
-}
-
-/// @nodoc
-class __$ProductFailureCopyWithImpl<$Res>
-    extends _$ProductFailureCopyWithImpl<$Res>
-    implements _$ProductFailureCopyWith<$Res> {
-  __$ProductFailureCopyWithImpl(
-      _ProductFailure _value, $Res Function(_ProductFailure) _then)
-      : super(_value, (v) => _then(v as _ProductFailure));
-
-  @override
-  _ProductFailure get _value => super._value as _ProductFailure;
-
-  @override
-  $Res call({
-    Object? message = freezed,
-  }) {
-    return _then(_ProductFailure(
-      message: message == freezed
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_ProductFailure implements _ProductFailure {
-  const _$_ProductFailure({this.message});
-
-  @override
-  final String? message;
-
-  @override
-  String toString() {
-    return 'ProductFailure(message: $message)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _ProductFailure &&
-            const DeepCollectionEquality().equals(other.message, message));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
-
-  @JsonKey(ignore: true)
-  @override
-  _$ProductFailureCopyWith<_ProductFailure> get copyWith =>
-      __$ProductFailureCopyWithImpl<_ProductFailure>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String? message) $default, {
-    required TResult Function() localDbFailure,
-    required TResult Function() unexpected,
-  }) {
-    return $default(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? message)? $default, {
-    TResult Function()? localDbFailure,
-    TResult Function()? unexpected,
-  }) {
-    return $default?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? message)? $default, {
-    TResult Function()? localDbFailure,
-    TResult Function()? unexpected,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ProductFailure value) $default, {
-    required TResult Function(_LocalDbFailure value) localDbFailure,
-    required TResult Function(_Unexpected value) unexpected,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_ProductFailure value)? $default, {
-    TResult Function(_LocalDbFailure value)? localDbFailure,
-    TResult Function(_Unexpected value)? unexpected,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ProductFailure value)? $default, {
-    TResult Function(_LocalDbFailure value)? localDbFailure,
-    TResult Function(_Unexpected value)? unexpected,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ProductFailure implements ProductFailure {
-  const factory _ProductFailure({String? message}) = _$_ProductFailure;
-
-  String? get message;
-  @JsonKey(ignore: true)
-  _$ProductFailureCopyWith<_ProductFailure> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -281,9 +139,9 @@ class _$_LocalDbFailure implements _LocalDbFailure {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String? message) $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function() localDbFailure,
+    required TResult Function() noDataFailure,
     required TResult Function() unexpected,
   }) {
     return localDbFailure();
@@ -291,9 +149,9 @@ class _$_LocalDbFailure implements _LocalDbFailure {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? message)? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? localDbFailure,
+    TResult Function()? noDataFailure,
     TResult Function()? unexpected,
   }) {
     return localDbFailure?.call();
@@ -301,9 +159,9 @@ class _$_LocalDbFailure implements _LocalDbFailure {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? message)? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function()? localDbFailure,
+    TResult Function()? noDataFailure,
     TResult Function()? unexpected,
     required TResult orElse(),
   }) {
@@ -315,9 +173,9 @@ class _$_LocalDbFailure implements _LocalDbFailure {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ProductFailure value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(_LocalDbFailure value) localDbFailure,
+    required TResult Function(_NoDataFailure value) noDataFailure,
     required TResult Function(_Unexpected value) unexpected,
   }) {
     return localDbFailure(this);
@@ -325,9 +183,9 @@ class _$_LocalDbFailure implements _LocalDbFailure {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_ProductFailure value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_LocalDbFailure value)? localDbFailure,
+    TResult Function(_NoDataFailure value)? noDataFailure,
     TResult Function(_Unexpected value)? unexpected,
   }) {
     return localDbFailure?.call(this);
@@ -335,9 +193,9 @@ class _$_LocalDbFailure implements _LocalDbFailure {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ProductFailure value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(_LocalDbFailure value)? localDbFailure,
+    TResult Function(_NoDataFailure value)? noDataFailure,
     TResult Function(_Unexpected value)? unexpected,
     required TResult orElse(),
   }) {
@@ -350,6 +208,117 @@ class _$_LocalDbFailure implements _LocalDbFailure {
 
 abstract class _LocalDbFailure implements ProductFailure {
   const factory _LocalDbFailure() = _$_LocalDbFailure;
+}
+
+/// @nodoc
+abstract class _$NoDataFailureCopyWith<$Res> {
+  factory _$NoDataFailureCopyWith(
+          _NoDataFailure value, $Res Function(_NoDataFailure) then) =
+      __$NoDataFailureCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$NoDataFailureCopyWithImpl<$Res>
+    extends _$ProductFailureCopyWithImpl<$Res>
+    implements _$NoDataFailureCopyWith<$Res> {
+  __$NoDataFailureCopyWithImpl(
+      _NoDataFailure _value, $Res Function(_NoDataFailure) _then)
+      : super(_value, (v) => _then(v as _NoDataFailure));
+
+  @override
+  _NoDataFailure get _value => super._value as _NoDataFailure;
+}
+
+/// @nodoc
+
+class _$_NoDataFailure implements _NoDataFailure {
+  const _$_NoDataFailure();
+
+  @override
+  String toString() {
+    return 'ProductFailure.noDataFailure()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _NoDataFailure);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() localDbFailure,
+    required TResult Function() noDataFailure,
+    required TResult Function() unexpected,
+  }) {
+    return noDataFailure();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? localDbFailure,
+    TResult Function()? noDataFailure,
+    TResult Function()? unexpected,
+  }) {
+    return noDataFailure?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? localDbFailure,
+    TResult Function()? noDataFailure,
+    TResult Function()? unexpected,
+    required TResult orElse(),
+  }) {
+    if (noDataFailure != null) {
+      return noDataFailure();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LocalDbFailure value) localDbFailure,
+    required TResult Function(_NoDataFailure value) noDataFailure,
+    required TResult Function(_Unexpected value) unexpected,
+  }) {
+    return noDataFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_LocalDbFailure value)? localDbFailure,
+    TResult Function(_NoDataFailure value)? noDataFailure,
+    TResult Function(_Unexpected value)? unexpected,
+  }) {
+    return noDataFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LocalDbFailure value)? localDbFailure,
+    TResult Function(_NoDataFailure value)? noDataFailure,
+    TResult Function(_Unexpected value)? unexpected,
+    required TResult orElse(),
+  }) {
+    if (noDataFailure != null) {
+      return noDataFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NoDataFailure implements ProductFailure {
+  const factory _NoDataFailure() = _$_NoDataFailure;
 }
 
 /// @nodoc
@@ -391,9 +360,9 @@ class _$_Unexpected implements _Unexpected {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String? message) $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function() localDbFailure,
+    required TResult Function() noDataFailure,
     required TResult Function() unexpected,
   }) {
     return unexpected();
@@ -401,9 +370,9 @@ class _$_Unexpected implements _Unexpected {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String? message)? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? localDbFailure,
+    TResult Function()? noDataFailure,
     TResult Function()? unexpected,
   }) {
     return unexpected?.call();
@@ -411,9 +380,9 @@ class _$_Unexpected implements _Unexpected {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? message)? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function()? localDbFailure,
+    TResult Function()? noDataFailure,
     TResult Function()? unexpected,
     required TResult orElse(),
   }) {
@@ -425,9 +394,9 @@ class _$_Unexpected implements _Unexpected {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ProductFailure value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(_LocalDbFailure value) localDbFailure,
+    required TResult Function(_NoDataFailure value) noDataFailure,
     required TResult Function(_Unexpected value) unexpected,
   }) {
     return unexpected(this);
@@ -435,9 +404,9 @@ class _$_Unexpected implements _Unexpected {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_ProductFailure value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_LocalDbFailure value)? localDbFailure,
+    TResult Function(_NoDataFailure value)? noDataFailure,
     TResult Function(_Unexpected value)? unexpected,
   }) {
     return unexpected?.call(this);
@@ -445,9 +414,9 @@ class _$_Unexpected implements _Unexpected {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ProductFailure value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(_LocalDbFailure value)? localDbFailure,
+    TResult Function(_NoDataFailure value)? noDataFailure,
     TResult Function(_Unexpected value)? unexpected,
     required TResult orElse(),
   }) {

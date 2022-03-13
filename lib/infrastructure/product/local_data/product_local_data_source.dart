@@ -1,6 +1,7 @@
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/product/product.dart';
+import '../../core/exception.dart';
 import '../../core/local_db.dart';
 
 @lazySingleton
@@ -23,6 +24,8 @@ class ProductLocalDataSource {
 
     List<Product> products =
         jsons.map((json) => Product.fromJson(json)).toList();
+
+    if (products.isEmpty) throw NoDataException();
     return products;
   }
 

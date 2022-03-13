@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'application/bloc/product/product_bloc.dart';
 import 'injection.dart';
+import 'presentation/core/no_scroll_glow.dart';
 import 'presentation/routes.dart';
 
 void main() {
@@ -31,6 +32,12 @@ class MyApp extends StatelessWidget {
                 secondary: Colors.orange,
               ),
         ),
+        builder: (context, child) {
+          return ScrollConfiguration(
+            behavior: NoScrollGlow(),
+            child: child ?? Container(),
+          );
+        },
         initialRoute: BitPosRoutes.home,
         onGenerateRoute: (settings) => MaterialPageRoute(
           builder: (BuildContext context) => BitPosRoutes.makeRoute(

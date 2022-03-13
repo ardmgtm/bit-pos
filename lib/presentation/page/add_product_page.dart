@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../application/bloc/product/product_bloc.dart';
 import '../../domain/product/product.dart';
 import '../core/currency_formatter.dart';
+import '../core/string_extension.dart';
 import '../widget/widgets.dart';
 
 class AddProductPage extends StatelessWidget {
@@ -50,10 +51,10 @@ class AddProductPage extends StatelessWidget {
                     if (!isValid) return;
                     var newProduct = Product(
                       id: product?.id,
-                      name: _productNameInput.text,
+                      name: _productNameInput.text.toTitleCase(),
                       price: CurrencyFormatter.parse(_priceInput.text),
                       image: _base64imageselected ?? '',
-                      category: _categoryInput.text,
+                      category: _categoryInput.text.toTitleCase(),
                     );
                     if (_isEdit) {
                       context

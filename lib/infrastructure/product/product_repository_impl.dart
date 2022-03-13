@@ -1,3 +1,4 @@
+import 'package:bit_pos/infrastructure/core/exception.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
@@ -37,6 +38,8 @@ class ProductRepositoryImpl implements ProductRepository {
     try {
       var products = await localDataSource.getProducts();
       return left(products);
+    } on NoDataException {
+      return const Right(ProductFailure.noDataFailure());
     } catch (e) {
       return const Right(ProductFailure.unexpected());
     }

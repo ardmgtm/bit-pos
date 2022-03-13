@@ -1051,9 +1051,9 @@ class _$ProductStateTearOff {
     return const _Loading();
   }
 
-  _Error error({String? msg}) {
+  _Error error(ProductFailure failure) {
     return _Error(
-      msg: msg,
+      failure,
     );
   }
 
@@ -1079,7 +1079,7 @@ mixin _$ProductState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String? msg) error,
+    required TResult Function(ProductFailure failure) error,
     required TResult Function(Product product) productLoaded,
     required TResult Function(List<Product> products) productsLoaded,
   }) =>
@@ -1088,7 +1088,7 @@ mixin _$ProductState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String? msg)? error,
+    TResult Function(ProductFailure failure)? error,
     TResult Function(Product product)? productLoaded,
     TResult Function(List<Product> products)? productsLoaded,
   }) =>
@@ -1097,7 +1097,7 @@ mixin _$ProductState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String? msg)? error,
+    TResult Function(ProductFailure failure)? error,
     TResult Function(Product product)? productLoaded,
     TResult Function(List<Product> products)? productsLoaded,
     required TResult orElse(),
@@ -1189,7 +1189,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String? msg) error,
+    required TResult Function(ProductFailure failure) error,
     required TResult Function(Product product) productLoaded,
     required TResult Function(List<Product> products) productsLoaded,
   }) {
@@ -1201,7 +1201,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String? msg)? error,
+    TResult Function(ProductFailure failure)? error,
     TResult Function(Product product)? productLoaded,
     TResult Function(List<Product> products)? productsLoaded,
   }) {
@@ -1213,7 +1213,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String? msg)? error,
+    TResult Function(ProductFailure failure)? error,
     TResult Function(Product product)? productLoaded,
     TResult Function(List<Product> products)? productsLoaded,
     required TResult orElse(),
@@ -1309,7 +1309,7 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String? msg) error,
+    required TResult Function(ProductFailure failure) error,
     required TResult Function(Product product) productLoaded,
     required TResult Function(List<Product> products) productsLoaded,
   }) {
@@ -1321,7 +1321,7 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String? msg)? error,
+    TResult Function(ProductFailure failure)? error,
     TResult Function(Product product)? productLoaded,
     TResult Function(List<Product> products)? productsLoaded,
   }) {
@@ -1333,7 +1333,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String? msg)? error,
+    TResult Function(ProductFailure failure)? error,
     TResult Function(Product product)? productLoaded,
     TResult Function(List<Product> products)? productsLoaded,
     required TResult orElse(),
@@ -1393,7 +1393,9 @@ abstract class _Loading implements ProductState {
 abstract class _$ErrorCopyWith<$Res> {
   factory _$ErrorCopyWith(_Error value, $Res Function(_Error) then) =
       __$ErrorCopyWithImpl<$Res>;
-  $Res call({String? msg});
+  $Res call({ProductFailure failure});
+
+  $ProductFailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
@@ -1407,28 +1409,35 @@ class __$ErrorCopyWithImpl<$Res> extends _$ProductStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? msg = freezed,
+    Object? failure = freezed,
   }) {
     return _then(_Error(
-      msg: msg == freezed
-          ? _value.msg
-          : msg // ignore: cast_nullable_to_non_nullable
-              as String?,
+      failure == freezed
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as ProductFailure,
     ));
+  }
+
+  @override
+  $ProductFailureCopyWith<$Res> get failure {
+    return $ProductFailureCopyWith<$Res>(_value.failure, (value) {
+      return _then(_value.copyWith(failure: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$_Error implements _Error {
-  const _$_Error({this.msg});
+  const _$_Error(this.failure);
 
   @override
-  final String? msg;
+  final ProductFailure failure;
 
   @override
   String toString() {
-    return 'ProductState.error(msg: $msg)';
+    return 'ProductState.error(failure: $failure)';
   }
 
   @override
@@ -1436,12 +1445,12 @@ class _$_Error implements _Error {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Error &&
-            const DeepCollectionEquality().equals(other.msg, msg));
+            const DeepCollectionEquality().equals(other.failure, failure));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(msg));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(failure));
 
   @JsonKey(ignore: true)
   @override
@@ -1453,11 +1462,11 @@ class _$_Error implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String? msg) error,
+    required TResult Function(ProductFailure failure) error,
     required TResult Function(Product product) productLoaded,
     required TResult Function(List<Product> products) productsLoaded,
   }) {
-    return error(msg);
+    return error(failure);
   }
 
   @override
@@ -1465,11 +1474,11 @@ class _$_Error implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String? msg)? error,
+    TResult Function(ProductFailure failure)? error,
     TResult Function(Product product)? productLoaded,
     TResult Function(List<Product> products)? productsLoaded,
   }) {
-    return error?.call(msg);
+    return error?.call(failure);
   }
 
   @override
@@ -1477,13 +1486,13 @@ class _$_Error implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String? msg)? error,
+    TResult Function(ProductFailure failure)? error,
     TResult Function(Product product)? productLoaded,
     TResult Function(List<Product> products)? productsLoaded,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(msg);
+      return error(failure);
     }
     return orElse();
   }
@@ -1530,9 +1539,9 @@ class _$_Error implements _Error {
 }
 
 abstract class _Error implements ProductState {
-  const factory _Error({String? msg}) = _$_Error;
+  const factory _Error(ProductFailure failure) = _$_Error;
 
-  String? get msg;
+  ProductFailure get failure;
   @JsonKey(ignore: true)
   _$ErrorCopyWith<_Error> get copyWith => throw _privateConstructorUsedError;
 }
@@ -1613,7 +1622,7 @@ class _$_ProductLoaded implements _ProductLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String? msg) error,
+    required TResult Function(ProductFailure failure) error,
     required TResult Function(Product product) productLoaded,
     required TResult Function(List<Product> products) productsLoaded,
   }) {
@@ -1625,7 +1634,7 @@ class _$_ProductLoaded implements _ProductLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String? msg)? error,
+    TResult Function(ProductFailure failure)? error,
     TResult Function(Product product)? productLoaded,
     TResult Function(List<Product> products)? productsLoaded,
   }) {
@@ -1637,7 +1646,7 @@ class _$_ProductLoaded implements _ProductLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String? msg)? error,
+    TResult Function(ProductFailure failure)? error,
     TResult Function(Product product)? productLoaded,
     TResult Function(List<Product> products)? productsLoaded,
     required TResult orElse(),
@@ -1765,7 +1774,7 @@ class _$_ProductsLoaded implements _ProductsLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String? msg) error,
+    required TResult Function(ProductFailure failure) error,
     required TResult Function(Product product) productLoaded,
     required TResult Function(List<Product> products) productsLoaded,
   }) {
@@ -1777,7 +1786,7 @@ class _$_ProductsLoaded implements _ProductsLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String? msg)? error,
+    TResult Function(ProductFailure failure)? error,
     TResult Function(Product product)? productLoaded,
     TResult Function(List<Product> products)? productsLoaded,
   }) {
@@ -1789,7 +1798,7 @@ class _$_ProductsLoaded implements _ProductsLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String? msg)? error,
+    TResult Function(ProductFailure failure)? error,
     TResult Function(Product product)? productLoaded,
     TResult Function(List<Product> products)? productsLoaded,
     required TResult orElse(),
