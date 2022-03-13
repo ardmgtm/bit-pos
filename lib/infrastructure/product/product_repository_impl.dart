@@ -1,10 +1,10 @@
-import 'package:bit_pos/infrastructure/core/exception.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/product/product.dart';
 import '../../domain/product/product_failure.dart';
 import '../../domain/product/product_repository.dart';
+import '../core/exception.dart';
 import 'local_data/product_local_data_source.dart';
 
 @LazySingleton(as: ProductRepository)

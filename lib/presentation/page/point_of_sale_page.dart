@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/bloc/cart/cart_bloc.dart';
 import '../../application/bloc/product/product_bloc.dart';
+import '../../application/bloc/product_filter/product_filter_bloc.dart';
+import '../../domain/product/product_filter.dart';
 import '../../injection.dart';
 import '../widget/cart_panel.dart';
 import '../widget/widgets.dart';
@@ -13,8 +15,19 @@ class PointOfSalePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<CartBloc>()..add(const CartEvent.started()),
+    TextEditingController _searchInput = TextEditingController();
+    var productBloc = context.read<ProductBloc>();
+
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<CartBloc>(
+          create: (context) =>
+              getIt<CartBloc>()..add(const CartEvent.started()),
+        ),
+        BlocProvider<ProductFilterBloc>(
+          create: (context) => getIt<ProductFilterBloc>(),
+        ),
+      ],
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Point of Sale'),
@@ -25,18 +38,101 @@ class PointOfSalePage extends StatelessWidget {
           ),
           actions: [Container()],
         ),
-        body: BlocBuilder<ProductBloc, ProductState>(
-          builder: (context, state) {
-            return state.maybeMap(
-              orElse: () => Container(),
-              productsLoaded: (currentState) {
-                return ProductGridView(
-                  products: currentState.products,
-                  blocContext: context,
+        body: Column(
+          children: [
+            BlocBuilder<ProductFilterBloc, ProductFilterState>(
+              builder: (context, state) {
+                return Container(
+                  padding:
+                      const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                  color: Theme.of(context).colorScheme.primary,
+                  child: TextField(
+                    controller: _searchInput,
+                    onChanged: (text) {
+                      var filterBloc = context.read<ProductFilterBloc>();
+                      productBloc.state.mapOrNull(
+                        productsLoaded: (statedata) {
+                          filterBloc.add(ProductFilterEvent.filter(
+                            products: statedata.products,
+                            search: text,
+                          ));
+                        },
+                      );
+                    },
+                    decoration: const InputDecoration(
+                      hintText: "Search",
+                      isDense: true,
+                      filled: true,
+                      fillColor: Colors.white,
+                    ),
+                  ),
                 );
               },
-            );
-          },
+            ),
+            BlocBuilder<ProductBloc, ProductState>(
+              builder: (context, state) {
+                return state.maybeMap(
+                  orElse: () => Container(),
+                  error: (errorState) {
+                    var failure = errorState.failure;
+                    debugPrint(failure.runtimeType.toString());
+                    return failure.maybeMap(
+                      orElse: () =>
+                          const ProductErrorWidget(msg: 'Something Wrong !'),
+                      noDataFailure: (_) => const ProductErrorWidget(
+                        msg: 'No Data',
+                        icon: Icon(Icons.description_outlined),
+                      ),
+                    );
+                  },
+                  productsLoaded: (currentState) {
+                    var productBlocContext = context;
+                    context.read<ProductFilterBloc>().add(
+                          ProductFilterEvent.filter(
+                            products: currentState.products,
+                          ),
+                        );
+                    return BlocBuilder<ProductFilterBloc, ProductFilterState>(
+                      builder: (context, state) {
+                        var productFilter = state.mapOrNull(
+                          filtered: (filterState) => filterState.productFilter,
+                        );
+                        return Expanded(
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 60,
+                                child: CategoryChip(
+                                  productFilter: productFilter ??
+                                      ProductFilter(
+                                        products: currentState.products,
+                                      ),
+                                  onCategorySelected: (category) {
+                                    context.read<ProductFilterBloc>().add(
+                                          ProductFilterEvent.filter(
+                                            category: category,
+                                          ),
+                                        );
+                                  },
+                                ),
+                              ),
+                              Expanded(
+                                child: ProductGridView(
+                                  products: currentState.products,
+                                  productFilter: productFilter?.filter,
+                                  blocContext: productBlocContext,
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  },
+                );
+              },
+            ),
+          ],
         ),
         floatingActionButton: BlocBuilder<CartBloc, CartState>(
           builder: (context, state) {

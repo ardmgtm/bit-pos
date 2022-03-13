@@ -1,13 +1,13 @@
-import 'package:bit_pos/domain/product/product_filter.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/product/product.dart';
+import '../../../domain/product/product_filter.dart';
 
+part 'product_filter_bloc.freezed.dart';
 part 'product_filter_event.dart';
 part 'product_filter_state.dart';
-part 'product_filter_bloc.freezed.dart';
 
 @injectable
 class ProductFilterBloc extends Bloc<ProductFilterEvent, ProductFilterState> {

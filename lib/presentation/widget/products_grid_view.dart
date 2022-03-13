@@ -8,11 +8,13 @@ import 'widgets.dart';
 class ProductGridView extends StatelessWidget {
   final List<Product> products;
   final BuildContext blocContext;
+  final List<bool>? productFilter;
 
   const ProductGridView({
     Key? key,
     required this.products,
     required this.blocContext,
+    this.productFilter,
   }) : super(key: key);
 
   @override
@@ -24,16 +26,31 @@ class ProductGridView extends StatelessWidget {
           child: ResponsiveGridList(
             desiredItemWidth: 150,
             minSpacing: 16,
-            children: products.map(
-              (product) {
-                return _gridViewCard(context, product);
-              },
-            ).toList(),
+            // children: products.map(
+            //   (product) {
+            //     return _gridViewCard(
+            //       context,
+            //       product,
+            //       // visible: productFilter?[products.indexOf(product)],
+            //     );
+            //   },
+            // ).toList(),
+            children: _cards(context),
           ),
         ),
         const SizedBox(height: 16),
       ],
     );
+  }
+
+  List<Widget> _cards(BuildContext context) {
+    List<Widget> cards = [];
+    for (var i = 0; i < products.length; i++) {
+      if (productFilter?[i] ?? true) {
+        cards.add(_gridViewCard(context, products[i]));
+      }
+    }
+    return cards;
   }
 
   Widget _gridViewCard(BuildContext context, Product product) {

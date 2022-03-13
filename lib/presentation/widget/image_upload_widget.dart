@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:bit_pos/presentation/widget/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../core/image_helper.dart';
+import 'widgets.dart';
 
 class ImageUploadWidget extends StatefulWidget {
   final Function(String)? onImageUpload;
