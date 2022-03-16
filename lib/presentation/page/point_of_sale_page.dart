@@ -60,6 +60,12 @@ class PointOfSalePage extends StatelessWidget {
                       );
                     },
                     decoration: const InputDecoration(
+                      prefixIcon: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Icon(Icons.search),
+                      ),
+                      prefixIconConstraints:
+                          BoxConstraints(minWidth: 23, maxHeight: 23),
                       hintText: "Search",
                       isDense: true,
                       filled: true,

@@ -69,70 +69,73 @@ class ProductDetail extends StatelessWidget {
                 children: [
                   Container(
                     color: Theme.of(context).primaryColor,
-                    child: Column(
-                      children: [
-                        const SizedBox(height: 16),
-                        Center(
-                          child: Container(
-                            color: Colors.white,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                child: product.image == ''
-                                    ? Container(
-                                        height: 120,
-                                        width: 120,
-                                        color: Colors.grey[200],
-                                      )
-                                    : Base64Image(
-                                        base64String: product.image,
-                                        width: 120,
-                                        height: 120,
-                                      ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        children: [
+                          const SizedBox(height: 16),
+                          Center(
+                            child: Container(
+                              color: Colors.white,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  child: product.image == ''
+                                      ? Container(
+                                          height: 120,
+                                          width: 120,
+                                          color: Colors.grey[200],
+                                        )
+                                      : Base64Image(
+                                          base64String: product.image,
+                                          width: 120,
+                                          height: 120,
+                                        ),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        const SizedBox(height: 16),
-                        Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                product.name,
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline6!
-                                    .copyWith(
-                                      color: Colors.white,
-                                    ),
-                              ),
-                              Text(
-                                product.category,
-                                style: TextStyle(
-                                  fontStyle: FontStyle.italic,
-                                  color: Colors.grey[200],
+                          const SizedBox(height: 16),
+                          Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  product.name,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline6!
+                                      .copyWith(
+                                        color: Colors.white,
+                                      ),
                                 ),
-                              ),
-                              const SizedBox(height: 8),
-                              Text(
-                                CurrencyFormatter.format(product.price),
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline6!
-                                    .copyWith(
-                                      color: Colors.white,
-                                    ),
-                              ),
-                            ],
+                                Text(
+                                  product.category,
+                                  style: TextStyle(
+                                    fontStyle: FontStyle.italic,
+                                    color: Colors.grey[200],
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                Text(
+                                  CurrencyFormatter.format(product.price),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline6!
+                                      .copyWith(
+                                        color: Colors.white,
+                                      ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ],

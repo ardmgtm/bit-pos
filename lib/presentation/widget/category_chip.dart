@@ -24,6 +24,7 @@ class _CategoryChipState extends State<CategoryChip> {
   Widget build(BuildContext context) {
     var categories = widget.productFilter.categoryMap.keys.toList();
     var counts = widget.productFilter.categoryMap.values.toList();
+    var color = Theme.of(context).colorScheme.primary;
 
     return ListView.separated(
       scrollDirection: Axis.horizontal,
@@ -31,20 +32,26 @@ class _CategoryChipState extends State<CategoryChip> {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       separatorBuilder: (ctx, _) => const SizedBox(width: 8),
       itemBuilder: (context, index) {
+        bool _isSelected = _selectedIndex == index;
         return ChoiceChip(
           pressElevation: 0,
-          selectedColor: Theme.of(context).colorScheme.primary,
-          backgroundColor:
-              Theme.of(context).colorScheme.primary.withOpacity(0.5),
-          labelStyle: const TextStyle(color: Colors.white),
+          selectedColor: color,
+          backgroundColor: Colors.transparent,
+          side: BorderSide(
+            width: 2,
+            color: color,
+          ),
+          labelStyle: TextStyle(
+            color: _isSelected ? Colors.white : color,
+          ),
           label:
               Text('${categories[index].toCapitalized()} (${counts[index]})'),
-          selected: _selectedIndex == index,
+          selected: _isSelected,
           onSelected: (newVal) {
             setState(() {
               _selectedIndex = index;
             });
-            if (widget.onCategorySelected != null) {
+            if (widget.onCategorySelected != null && !_isSelected) {
               widget.onCategorySelected!(categories[index]);
             }
           },
