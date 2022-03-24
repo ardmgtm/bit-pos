@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../domain/product/product.dart';
+import '../domain/entity/product/product.dart';
 import 'page/add_product_page.dart';
 import 'page/home_page.dart';
 import 'page/point_of_sale_page.dart';

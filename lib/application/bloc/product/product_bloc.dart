@@ -2,9 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../domain/product/product.dart';
-import '../../../domain/product/product_failure.dart';
-import '../../../domain/product/product_repository.dart';
+import '../../../domain/entity/product/product.dart';
+import '../../../domain/failure/product_failure.dart';
+import '../../../domain/repository/product_repository.dart';
 
 part 'product_bloc.freezed.dart';
 part 'product_event.dart';

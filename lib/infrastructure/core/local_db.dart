@@ -1,7 +1,7 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-import '../product/local_data/product_table.dart';
+import '../data_source/local/product/product_table.dart';
 
 class LocalDb {
   static Database? _database;

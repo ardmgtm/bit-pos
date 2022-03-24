@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/product/product.dart';
+import '../../domain/entity/product/product.dart';
 import '../core/currency_formatter.dart';
 import 'widgets.dart';
 

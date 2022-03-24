@@ -4,12 +4,12 @@ part 'transaction_item.freezed.dart';
 part 'transaction_item.g.dart';
 
 const String tableTransactionItem = 'transaction_item';
-const String columnId = 'transaction_item';
-const String columnProductId = 'transaction_item';
-const String columnProductName = 'transaction_item';
-const String columnPrice = 'transaction_item';
-const String columnItemCount = 'transaction_item';
-const String columnTotalPrice = 'transaction_item';
+const String columnId = 'id';
+const String columnProductId = 'product_id';
+const String columnProductName = 'product_name';
+const String columnPrice = 'price';
+const String columnItemCount = 'item_count';
+const String columnTotalPrice = 'total_price';
 
 @freezed
 class TransactionItem with _$TransactionItem {

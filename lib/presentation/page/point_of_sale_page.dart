@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../application/bloc/cart/cart_bloc.dart';
 import '../../application/bloc/product/product_bloc.dart';
 import '../../application/bloc/product_filter/product_filter_bloc.dart';
-import '../../domain/product/product_filter.dart';
+import '../../domain/entity/product/product_filter.dart';
 import '../../injection.dart';
 import '../widget/cart_panel.dart';
 import '../widget/widgets.dart';

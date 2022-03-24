@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/product/product_filter.dart';
+import '../../domain/entity/product/product_filter.dart';
 import '../core/string_extension.dart';
 
 class CategoryChip extends StatefulWidget {

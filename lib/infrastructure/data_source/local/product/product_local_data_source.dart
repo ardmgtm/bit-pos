@@ -1,8 +1,8 @@
 import 'package:injectable/injectable.dart';
 
-import '../../../domain/product/product.dart';
-import '../../core/exception.dart';
-import '../../core/local_db.dart';
+import '../../../../domain/entity/product/product.dart';
+import '../../../core/exception.dart';
+import '../../../core/local_db.dart';
 
 @lazySingleton
 class ProductLocalDataSource {

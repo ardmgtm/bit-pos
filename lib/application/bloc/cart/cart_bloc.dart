@@ -2,8 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../domain/cart/cart.dart';
-import '../../../domain/cart/cart_item.dart';
+import '../../../domain/entity/cart/cart.dart';
+import '../../../domain/entity/cart/cart_item.dart';
 
 part 'cart_bloc.freezed.dart';
 part 'cart_event.dart';

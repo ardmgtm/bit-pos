@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 
-import 'product.dart';
-import 'product_failure.dart';
+import '../entity/product/product.dart';
+import '../failure/product_failure.dart';
 
 abstract class ProductRepository {
   Future<Either<Product, ProductFailure>> createProduct(Product product);

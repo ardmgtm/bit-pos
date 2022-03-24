@@ -1,4 +1,4 @@
-import '../../../domain/product/product.dart';
+import '../../../../domain/entity/product/product.dart';
 
 const String productTableCreateQuery = '''
 create table if not exists $tableProduct ( 

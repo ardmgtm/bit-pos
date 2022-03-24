@@ -1,11 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../domain/product/product.dart';
-import '../../domain/product/product_failure.dart';
-import '../../domain/product/product_repository.dart';
+import '../../domain/entity/product/product.dart';
+import '../../domain/failure/product_failure.dart';
+import '../../domain/repository/product_repository.dart';
 import '../core/exception.dart';
-import 'local_data/product_local_data_source.dart';
+import '../data_source/local/product/product_local_data_source.dart';
 
 @LazySingleton(as: ProductRepository)
 class ProductRepositoryImpl implements ProductRepository {

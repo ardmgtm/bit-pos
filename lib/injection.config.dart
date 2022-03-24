@@ -10,10 +10,10 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'application/bloc/cart/cart_bloc.dart' as _i3;
 import 'application/bloc/product/product_bloc.dart' as _i8;
 import 'application/bloc/product_filter/product_filter_bloc.dart' as _i4;
-import 'domain/product/product_repository.dart' as _i6;
-import 'infrastructure/product/local_data/product_local_data_source.dart'
+import 'domain/repository/product_repository.dart' as _i6;
+import 'infrastructure/data_source/local/product/product_local_data_source.dart'
     as _i5;
-import 'infrastructure/product/product_repository_impl.dart'
+import 'infrastructure/repository/product_repository_impl.dart'
     as _i7; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars

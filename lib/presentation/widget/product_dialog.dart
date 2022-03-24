@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/bloc/cart/cart_bloc.dart';
-import '../../domain/cart/cart_item.dart';
-import '../../domain/product/product.dart';
+import '../../domain/entity/cart/cart_item.dart';
+import '../../domain/entity/product/product.dart';
 import '../core/currency_formatter.dart';
 import 'widgets.dart';
 
